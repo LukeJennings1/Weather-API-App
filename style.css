@@ -1,0 +1,22 @@
+* {
+    font-family: 'Josefin Sans', sans-serif;
+}
+body {
+    background-image: url('./wp7787032-low-poly-landscape-wallpapers.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.site-container {
+    position:static;
+    display: flex;
+    justify-content: center;
+    padding-top: 8%;
+}
+.weather-wrapper {
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    padding: 30px;
+    width: 30%;
+    height: 400px;
+}

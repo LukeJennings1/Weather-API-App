@@ -7,7 +7,7 @@ submitLocationButton
 const fetchAPI = async function weatherAPIFetch(){
 const apiFetch = await fetch('http://api.openweathermap.org/data/2.5/weather?q='+inputBox.value+'&APPID=6a1ec683efc2b775407037c6b2204412', {mode:'cors'})
 const jsonConversion = await apiFetch.json()
-return jsonConversion, console.log(jsonConversion.name),console.log(jsonConversion), console.log(jsonConversion.main.feels_like,jsonConversion.main.humidity);
+return jsonConversion, console.log(jsonConversion.name),console.log(jsonConversion), console.log(jsonConversion.main.feels_like,jsonConversion.main.humidity, jsonConversion.main.temp);
 // ,pushToScreen.textContent = jsonConversion.name
 
 }
