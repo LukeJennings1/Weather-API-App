@@ -16,11 +16,17 @@ body {
 }
 .weather-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border: solid #6e6e89;
     border-width: 2px;
     border-radius: 10px;
     padding: 30px;
     width: 30%;
     height: 400px;
+}
+#inputBox {
+    background-image: url(./icons8-search-30.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 30px;
 }
