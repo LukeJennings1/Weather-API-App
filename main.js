@@ -7,18 +7,16 @@ submitLocationButton
 const fetchAPI = async function weatherAPIFetch(){
 const apiFetch = await fetch('http://api.openweathermap.org/data/2.5/weather?q='+inputBox.value+'&APPID=6a1ec683efc2b775407037c6b2204412', {mode:'cors'})
 const jsonConversion = await apiFetch.json()
+if (jsonConversion.cod === "404" || jsonConversion.cod === "400" ){
+    return (console.log('ERROR - Please input valid place name'))
+} else {
 return jsonConversion, console.log(jsonConversion.name),console.log(jsonConversion), console.log(jsonConversion.main.feels_like,jsonConversion.main.humidity, jsonConversion.main.temp);
 // ,pushToScreen.textContent = jsonConversion.name
-
 }
-
-// fetchAPI().catch(err => {
-//     console.error(err)
-// });
-
+}
 submitLocationButton.addEventListener('click', () => {
     fetchAPI().catch(function (){
-        console.log('error)');
+        console.log('error');
     });
     console.log(inputBox.value)
 });
