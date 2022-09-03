@@ -10,6 +10,20 @@ const windSpeed = document.getElementById('windSpeed');
 
 // const temp - 
 
+function cloudCoverage(cloudValue){
+    if (cloudValue === 0) {
+        return console.log('CLEAR');
+    } else if (cloudValue < 25) {
+        return console.log('Few Clouds');
+    }  else if (cloudValue < 50) {
+        return console.log('Scattered Clouds');
+    } else if (cloudValue < 84) {
+        return console.log('Broken Clouds');
+    } else if (cloudValue < 100) {
+        return console.log('Overcast Clouds');
+    }
+}
+
 submitLocationButton
 const fetchAPI = async function weatherAPIFetch(){
 const apiFetch = await fetch('http://api.openweathermap.org/data/2.5/weather?q='+inputBox.value+'&APPID=6a1ec683efc2b775407037c6b2204412', {mode:'cors'})
@@ -20,7 +34,8 @@ if (jsonConversion.cod === "404" || jsonConversion.cod === "400" ){
 return console.log(jsonConversion),
 placeName.textContent = jsonConversion.name,
 temp.textContent = 'Temperature - ' + (jsonConversion.main.temp -273.15).toFixed(2) + '°C',
-feelsLike.textContent = 'Feels like - ' + jsonConversion.main.feels_like,
+feelsLike.textContent = 'Feels like - ' + (jsonConversion.main.feels_like -273.15).toFixed(2) + '°C',
+cloudCoverage(jsonConversion.clouds.all),
 cloudCover.textContent = jsonConversion.clouds.all,
 humidity.textContent = jsonConversion.main.humidity,
 windSpeed.textContent = jsonConversion.wind.speed;
