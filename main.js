@@ -8,23 +8,22 @@ const cloudCover = document.getElementById('cloudCover');
 const humidity = document.getElementById('humidity');
 const windSpeed = document.getElementById('windSpeed');
 
-// const temp - 
 
 function cloudCoverage(cloudValue){
+cloudCover.textContent = ''; // reset div prior to filling with new data. 
     if (cloudValue === 0) {
-        return console.log('CLEAR');
-    } else if (cloudValue < 25) {
-        return console.log('Few Clouds');
-    }  else if (cloudValue < 50) {
-        return console.log('Scattered Clouds');
-    } else if (cloudValue < 84) {
-        return console.log('Broken Clouds');
-    } else if (cloudValue < 100) {
-        return console.log('Overcast Clouds');
+        return console.log('CLEAR'), cloudCover.textContent = 'Clear Skies';
+    } else if (cloudValue > 0 && cloudValue < 26) {
+        return console.log('Few Clouds'), cloudCover.textContent = 'Few Clouds';
+    }  else if (cloudValue > 25 && cloudValue < 51) {
+        return console.log('Scattered Clouds'), cloudCover.textContent = 'Scattered Clouds';
+    } else if (cloudValue > 50 && cloudValue < 85) {
+        return console.log('Broken Clouds'), cloudCover.textContent = 'Broken Clouds';
+    } else if (cloudValue > 84 && cloudValue < 101) {
+        return console.log('Overcast Clouds'), cloudCover.textContent = 'Overcast Clouds';
     }
 }
 
-submitLocationButton
 const fetchAPI = async function weatherAPIFetch(){
 const apiFetch = await fetch('http://api.openweathermap.org/data/2.5/weather?q='+inputBox.value+'&APPID=6a1ec683efc2b775407037c6b2204412', {mode:'cors'})
 const jsonConversion = await apiFetch.json()
@@ -36,9 +35,9 @@ placeName.textContent = jsonConversion.name,
 temp.textContent = 'Temperature - ' + (jsonConversion.main.temp -273.15).toFixed(2) + '°C',
 feelsLike.textContent = 'Feels like - ' + (jsonConversion.main.feels_like -273.15).toFixed(2) + '°C',
 cloudCoverage(jsonConversion.clouds.all),
-cloudCover.textContent = jsonConversion.clouds.all,
-humidity.textContent = jsonConversion.main.humidity,
-windSpeed.textContent = jsonConversion.wind.speed;
+// cloudCover.textContent = jsonConversion.clouds.all,
+humidity.textContent = 'Humidity - ' + jsonConversion.main.humidity + '%',
+windSpeed.textContent = 'Windspeed - ' + jsonConversion.wind.speed.toFixed(1) + ' km/h';
 }
 }
 submitLocationButton.addEventListener('click', () => {
@@ -50,11 +49,3 @@ submitLocationButton.addEventListener('click', () => {
 
 
 
-//need to get the data from a specific city. Also enable a text box and button to search for a user input city - done
-// jsonConversion.main.feels_like is given in kelvin so minus -273.15 from it to get it in degree
-// jsonConversion.main.temp is the actual temp in kelvin  
-// jsonConversion.main.humidity is the actual humidity in percent  
-// jsonConversion.wind.speed is the actual wind speed in km/h 
-// jsonConversion.list.pop is the actual wind speed in km/h 
-
-// jsonConversion.clouds.all is the cloud amount in percentage. The percentage range can be done on the site https://openweathermap.org/weather-conditions 
