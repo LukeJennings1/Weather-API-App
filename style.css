@@ -14,9 +14,12 @@ body {
     justify-content: center;
     padding-top: 8%;
 }
+.searchBoxWrapper {
+    display: flex;
+}
 .weather-wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     border: solid #6e6e89;
     border-width: 2px;
     border-radius: 10px;
@@ -32,10 +35,15 @@ body {
     height: 17px;
     width: 25px;
     border: none;
-
 }
 #inputBox {
     height: 15px;
     border: none;
-
 }
+.weatherInfoResultWrapper{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
