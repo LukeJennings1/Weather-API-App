@@ -66,3 +66,11 @@ submitLocationButton.addEventListener('click', () => {
     console.log(inputBox.value)
 });
 
+inputBox.addEventListener("keypress", function(event) { // adds keyboard enter click 
+  if (event.key === "Enter") {
+    fetchAPI().catch(function (){
+        console.log('error');
+    });
+    document.getElementById("submitLocationButton").click();
+  }
+});

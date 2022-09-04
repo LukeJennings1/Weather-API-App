@@ -80,9 +80,11 @@ body {
 display: flex;
 flex-direction: column;
 align-items: center;
+padding-bottom: 30px;
 }
 .middleThird {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 15px;
 }
