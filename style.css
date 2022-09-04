@@ -48,9 +48,7 @@ body {
     display: flex;
     flex-direction: column;
     font-size: 25px;
-}
-#temp {
-    margin-top: 5px;
+    align-items: center;
 }
 .humid {
     display: flex;
@@ -59,16 +57,32 @@ body {
 }
 .tempWrapper{
     display: flex;
-    align-items: inherit;
     flex-direction: row-reverse;
+    margin-top: 5px;
+    align-items: center;
+}
+.windWrapper {
+    display: flex;
+}
+#cloudCover {
+    margin-top: -15px;
+    font-size: 20px;
 }
 .weatherIcons {
  width: 30px;
  height: auto;
+ margin-top: -20px;
+}
+.propertyTitle {
+    font-size:18px;
 }
 .upperThird {
 display: flex;
 flex-direction: column;
 align-items: center;
-
+}
+.middleThird {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

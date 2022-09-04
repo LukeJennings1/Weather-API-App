@@ -31,12 +31,12 @@ const fetchAPIInitial = async function weatherAPIFetchInitial(){
     } else {
     return console.log(jsonConversion),
     placeName.textContent += jsonConversion.name,
-    temp.textContent +=  + (jsonConversion.main.temp -273.15).toFixed(0) + '°C',
-    feelsLike.textContent += 'Feels like - ' + (jsonConversion.main.feels_like -273.15).toFixed(0) + '°C',
+    temp.textContent +=  ' ' +(jsonConversion.main.temp -273.15).toFixed(0) + '°C',
+    feelsLike.textContent +=  + (jsonConversion.main.feels_like -273.15).toFixed(0) + '°C',
     cloudCoverage(jsonConversion.clouds.all),
     // cloudCover.textContent = jsonConversion.clouds.all,
-    humidity.textContent += 'Humidity ' + jsonConversion.main.humidity + '%',
-    windSpeed.textContent += 'Windspeed - ' + jsonConversion.wind.speed.toFixed(1) + ' km/h';
+    humidity.textContent += jsonConversion.main.humidity + '%',
+    windSpeed.textContent +=  + jsonConversion.wind.speed.toFixed(1) + ' km/h';
     }
     }
     fetchAPIInitial().catch(function (){
@@ -51,12 +51,12 @@ if (jsonConversion.cod === "404" || jsonConversion.cod === "400" ){
 } else {
 return console.log(jsonConversion),
 placeName.textContent = jsonConversion.name,
-temp.textContent = '- Temperature - ' + (jsonConversion.main.temp -273.15).toFixed(1) + '°C',
-feelsLike.textContent = 'Feels like - ' + (jsonConversion.main.feels_like -273.15).toFixed(1) + '°C',
+temp.textContent =  (jsonConversion.main.temp -273.15).toFixed(0) + '°C',
+feelsLike.textContent = (jsonConversion.main.feels_like -273.15).toFixed(0) +  '°C',
 cloudCoverage(jsonConversion.clouds.all),
 // cloudCover.textContent = jsonConversion.clouds.all,
-humidity.textContent = 'Humidity ' + jsonConversion.main.humidity + '%',
-windSpeed.textContent = 'Windspeed - ' + jsonConversion.wind.speed.toFixed(1) + ' km/h';
+humidity.textContent =  jsonConversion.main.humidity + '%',
+windSpeed.textContent =  jsonConversion.wind.speed.toFixed(1) + ' km/h';
 }
 }
 submitLocationButton.addEventListener('click', () => {
