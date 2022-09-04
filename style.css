@@ -16,6 +16,9 @@ body {
 }
 .searchBoxWrapper {
     display: flex;
+    position: absolute;
+    margin-top: 403px;
+    margin-left: -20px;
 }
 .weather-wrapper {
     display: flex;
@@ -39,11 +42,33 @@ body {
 #inputBox {
     height: 15px;
     border: none;
+    
 }
 .weatherInfoResultWrapper{
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    font-size: 25px;
+}
+#temp {
+    margin-top: 5px;
+}
+.humid {
+    display: flex;
+    flex-direction: row-reverse;
     align-items: center;
 }
+.tempWrapper{
+    display: flex;
+    align-items: inherit;
+    flex-direction: row-reverse;
+}
+.weatherIcons {
+ width: 30px;
+ height: auto;
+}
+.upperThird {
+display: flex;
+flex-direction: column;
+align-items: center;
 
+}
