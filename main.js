@@ -7,7 +7,7 @@ const feelsLike = document.getElementById('feelsLike');
 const cloudCover = document.getElementById('cloudCover');
 const weatherIcon = document.getElementById('weatherIcon');
 const humidity = document.getElementById('humidity');
-const windSpeed = document.getElementById('windSpeed');
+const windSpeed = document.getElementById('speedofWind');
 
 function cloudCoverage(cloudValue){
 cloudCover.textContent = ''; // reset div prior to filling with new data.
